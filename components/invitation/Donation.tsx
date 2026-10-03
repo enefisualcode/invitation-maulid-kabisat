@@ -5,18 +5,27 @@ import { donation } from "@/data/donation";
 
 async function copyText(value: string) {
   if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(value);
-    return;
+    try {
+      await navigator.clipboard.writeText(value);
+      return;
+    } catch {
+      // Some mobile browsers expose Clipboard API but reject the write request.
+      // Fall through to the supported selection-based method in that case.
+    }
   }
 
   const textArea = document.createElement("textarea");
   textArea.value = value;
   textArea.style.position = "fixed";
   textArea.style.opacity = "0";
+  textArea.style.pointerEvents = "none";
   document.body.appendChild(textArea);
   textArea.select();
-  document.execCommand("copy");
+  textArea.setSelectionRange(0, value.length);
+  const copied = document.execCommand("copy");
   textArea.remove();
+
+  if (!copied) throw new Error("Clipboard is unavailable");
 }
 
 export function Donation() {
