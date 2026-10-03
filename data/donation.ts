@@ -1,5 +1,5 @@
 export const donation = {
-  qrisImage: "/donation/QRIS.jpg",
+  qrisImage: "./donation/QRIS.jpg",
   qrisName: "DONASI KABISAT 07",
   bankName: "Bank Syariah Indonesia (BSI)",
   accountNumber: "1041326766",

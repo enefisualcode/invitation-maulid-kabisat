@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { donation } from "@/data/donation";
 
 async function copyText(value: string) {
@@ -61,7 +60,7 @@ export function Donation() {
             </div>
           </div>
           <div className="qris-frame">
-            <Image src={donation.qrisImage} alt="Kode QRIS untuk donasi kegiatan Maulid" width={640} height={664} unoptimized />
+            <img src={donation.qrisImage} alt="Kode QRIS untuk donasi kegiatan Maulid" width="640" height="664" />
           </div>
           <strong className="qris-name">{donation.qrisName}</strong>
           <p className="method-note">Pindai menggunakan aplikasi pembayaran favorit Anda.</p>
