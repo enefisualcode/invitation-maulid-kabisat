@@ -43,10 +43,10 @@ export function Donation() {
     <div className="donation-layout">
       <div className="donation-heading">
         <p className="eyebrow">Dukungan untuk kegiatan</p>
-        <h2>Donasi<br /><em>Maulid</em></h2>
+        <h2>Infak<br /><em>Maulid</em></h2>
         <p>
           Bagi Bapak/Ibu/Saudara/i yang ingin ikut mendukung terselenggaranya
-          kegiatan ini, donasi dapat disalurkan melalui QRIS atau transfer bank.
+          kegiatan ini, infak dapat disalurkan melalui QRIS atau transfer bank.
         </p>
       </div>
 
@@ -60,11 +60,11 @@ export function Donation() {
             </div>
           </div>
           <div className="qris-frame">
-            <img src={donation.qrisImage} alt="Kode QRIS untuk donasi kegiatan Maulid" width="640" height="664" />
+            <img src={donation.qrisImage} alt="Kode QRIS untuk infak kegiatan Maulid" width="640" height="664" />
           </div>
           <strong className="qris-name">{donation.qrisName}</strong>
           <p className="method-note">Pindai menggunakan aplikasi pembayaran favorit Anda.</p>
-          <a className="button button-primary donation-action" href={donation.qrisImage} download="QRIS-Donasi-Maulid-KABISAT.jpg">
+          <a className="button button-primary donation-action" href={donation.qrisImage} download="QRIS-Infak-Maulid-KABISAT.jpg">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
             Unduh QRIS
           </a>
