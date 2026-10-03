@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Cover } from "./Cover";
 import { Countdown } from "./Countdown";
 import { RSVPForm } from "./RSVPForm";
@@ -18,6 +18,16 @@ export function Invitation() {
   const [hasOpened, setHasOpened] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  useLayoutEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    const resetScroll = window.requestAnimationFrame(() => window.scrollTo(0, 0));
+    return () => {
+      window.cancelAnimationFrame(resetScroll);
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
   useEffect(() => setGuestName(guestFromUrl()), []);
   useEffect(() => {
     const audio = audioRef.current;
