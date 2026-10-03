@@ -33,6 +33,8 @@ export function RSVPForm({ defaultName }: { defaultName: string }) {
     <label>Nomor WhatsApp <small>(opsional)</small><input type="tel" inputMode="tel" value={form.whatsapp} onChange={(e) => update("whatsapp", e.target.value)} autoComplete="tel" /></label>
     <label>Pesan / Doa <small>(opsional)</small><textarea value={form.message} onChange={(e) => update("message", e.target.value)} rows={4} /></label>
     {status === "error" && <p className="form-error" role="alert">{error}</p>}
-    <button className="button button-primary" type="submit" disabled={status === "loading"}>{status === "loading" ? "Mengirim…" : "Kirim Konfirmasi"}</button>
+    <button className={`button button-primary submit-button ${status === "loading" ? "is-loading" : ""}`} type="submit" disabled={status === "loading"}>
+      {status === "loading" ? <><span className="submit-spinner" aria-hidden="true" /> Mengirim…</> : <>Kirim Konfirmasi <span className="submit-arrow" aria-hidden="true">↗</span></>}
+    </button>
   </form>;
 }
