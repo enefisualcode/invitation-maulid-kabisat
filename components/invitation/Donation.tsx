@@ -69,11 +69,11 @@ export function Donation() {
             </div>
           </div>
           <div className="qris-frame">
-            <img src={donation.qrisImage} alt="Kode QRIS untuk infak kegiatan Maulid" width="640" height="664" />
+            <img src={donation.qrisImage} alt="Kode QRIS untuk infak kegiatan Maulid" width="1179" height="1179" />
           </div>
           <strong className="qris-name">{donation.qrisName}</strong>
           <p className="method-note">Pindai menggunakan aplikasi pembayaran favorit Anda.</p>
-          <a className="button button-primary donation-action" href={donation.qrisImage} download="QRIS-Infak-Maulid-KABISAT.jpg">
+          <a className="button button-primary donation-action" href={donation.qrisImage} download="INFAK KABISAT 07.png">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
             Unduh QRIS
           </a>
